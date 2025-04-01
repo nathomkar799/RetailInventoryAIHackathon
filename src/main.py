@@ -1,7 +1,10 @@
 # Retail Inventory Optimization - Multi-Agent System with Multi-Day Simulation
 import ollama
 import random
-
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+from data.sales_data import historical_sales
 class DemandPredictionAgent:
     def __init__(self):
         self.model = "tinyllama"
@@ -72,9 +75,6 @@ class WarehouseAgent:
 # Main simulation
 if __name__ == "__main__":
     print("Starting Retail Inventory AI System...")
-    
-    # Hardcoded data (temporary)
-    historical_sales = [10, 15, 12, 8]
     
     # Initialize agents
     store = StoreAgent(initial_stock=5)
